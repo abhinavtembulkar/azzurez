@@ -43,6 +43,10 @@ function sender()
     }).done(function(o) { 
         console.log('sent'); 
     }); 
+
+    setTimeout(function(){
+        window.location.href = '/result';
+    }, 10000);
 }
 
 imager()

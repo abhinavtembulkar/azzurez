@@ -1,5 +1,5 @@
 from export_model import imager, calculate, loop, loader_face, loader_mask
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, request, url_for
 
 from binascii import a2b_base64
 import base64
@@ -14,7 +14,7 @@ visit = False
 imageid = 0
 net = ''
 model = '' 
-data = ''
+data = 'null'
 
 @app.route('/')
 def home():
@@ -51,12 +51,6 @@ def webcam():
     
     return render_template("webcam.html")
 
-@app.route('/result')
-def results():
-    print('[INFO] Results')
-    global data
-    return render_template("result.html",content = data)
-
 @app.route('/webcam',methods=['POST'])
 def inputer():    
     global imageid
@@ -74,7 +68,13 @@ def inputer():
         print('[INFO] Error !!')
         # socketio.emit('prederror')
 
-    return "works"
+    return redirect(url_for('results'))
+
+@app.route('/result')
+def results():
+    print('[INFO] Results')
+    global data
+    return render_template("result.html",content = data)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,6 +1,38 @@
 {% extends "base.html" %}
+{% block title %}
+<title>Result Page</title>
+{% endblock %}
+{% block script %}
+<link href="https://getbootstrap.com/docs/4.0/examples/product/product.css" rel="stylesheet">
+{% endblock %}
 {% block content %}
+<body class="bg-dark">
+    <nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-center">
+        <h3 class="text-light">Face Mask Detector</h3>
+        <a class="nav-link active" href="/">Home</a>
+        <a class="nav-link" href="/webcam">Webcam</a>
+        <a class="nav-link" href="/result">Result</a>
+    </div>
+    </nav>
 
-<img src="{{content}}" height="420" width="500"/>
-
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-dark mr-md-3 pt-0 px-0 pt-md-0 px-md-5 text-center text-white overflow-hidden">
+        <div>
+        <h2 class="display-5">Take a photo !</h2>
+        </div>
+        <div class="bg-dark box-shadow mx-auto" style="width: 100%; height: 100%; border-radius: 21px 21px 21px 21px; border-color: black">
+        <div></div>
+        <img src={{content}} width="500" height="420" alt="Wait for some more time to load">
+        </div>
+    </div>
+    </div>
+    
+    <footer class="container py-5">
+        <div class="inner text-center text-white">
+            <p>Face Mask detector web App 2020</p>
+            <p>Authors: <a href="mailto:abhinavtembulkar@gmail.com">Abhinav Tembulkar</a>, <a href="mailto:anshulsharma2323@gmail.com">Anshul Sharma</a></p>
+        </div>    
+    </footer>
+</body>
 {% endblock %}
