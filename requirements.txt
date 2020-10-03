@@ -1,0 +1,4 @@
+Flask==1.1.2
+gunicorn==19.9.0
+tensorflow==2.0.0
+opencv-python-headless
